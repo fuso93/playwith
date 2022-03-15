@@ -7,7 +7,13 @@ const Stack = createNativeStackNavigator();
 const OnboardingStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Onboard" component={Onboarding} />
+            <Stack.Screen
+                name="Onboard"
+                component={Onboarding}
+                options={{
+                    headerShown: false
+                }}
+            />
             <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
 
