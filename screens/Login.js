@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet,Image ,TouchableOpacity} from 'react-native';
 import {SIZES, COLORS, FONTS} from "../constants/theme"
-import {AuthLayout, FormInput, TextBtn} from "../component";
+import {AuthLayout, FormInput, TextBtn,TextIconButton} from "../component";
 import icons from "../constants/icons";
 import utils from "../utils/Utils";
 
@@ -73,7 +73,12 @@ const Login = () => {
 
             </View>
             <View style={styles.btnsContainer}>
-
+                <TextBtn
+                    label={"Forgot password"}
+                    labelStyle={styles.ForgotText}
+                    buttonContainerStyle={{backgroundColor:null}}
+                    onPress={() => alert("password 찾기")}
+                />
             </View>
             <TextBtn
                 label={'Log In'}
@@ -102,6 +107,41 @@ const Login = () => {
               />
           </View>
 
+          <View style={{marginBottom: SIZES.padding * 2.5}} >
+              <TextIconButton
+                icon={icons.fb}
+                containerStyle={{
+                    height: 50,
+                    alignItem: 'center',
+                    borderRadius: SIZES.radius,
+                    backgroundColor:COLORS.blue
+                }}
+                iconPosition={"LEFT"}
+                iconStyle={{tintColor: COLORS.white }}
+                label={"Continue with Facebook"}
+                labelStyle ={{
+                    marginLeft:SIZES.radius,
+                    color: COLORS.white
+                }}
+                onPress={() => alert('gfdsa')}
+              />
+              <TextIconButton
+                  icon={icons.google}
+                  containerStyle={{
+                      height: 50,
+                      alignItem: 'center',
+                      borderRadius: SIZES.radius,
+                      backgroundColor:COLORS.lightGray2
+                  }}
+                  iconPosition={"LEFT"}
+                  iconStyle={{tintColor: COLORS.red }}
+                  label={"Continue with Google"}
+                  labelStyle ={{
+                      marginLeft:SIZES.radius,
+                  }}
+                  onPress={() => alert('gfdsa')}
+              />
+          </View>
 
         </AuthLayout>
     );
@@ -139,6 +179,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop:SIZES.padding,
         justifyContent:'center'
+    },
+    ForgotText :{
+        color: COLORS.gray,
+        ...FONTS.body4
     }
 
 })
