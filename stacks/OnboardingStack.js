@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import {Onboarding, Login} from "../screens";
+import {Onboarding, Login, Forgot, Signup} from "../screens";
 const Stack = createNativeStackNavigator();
 
 const OnboardingStack = () => {
@@ -15,6 +15,8 @@ const OnboardingStack = () => {
                 }}
             />
             <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Forgot" component={Forgot} />
+            <Stack.Screen name="Signup" component={Signup} />
         </Stack.Navigator>
 
     );

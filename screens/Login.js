@@ -4,10 +4,11 @@ import {SIZES, COLORS, FONTS} from "../constants/theme"
 import {AuthLayout, FormInput, TextBtn,TextIconButton} from "../component";
 import icons from "../constants/icons";
 import utils from "../utils/Utils";
+import {useNavigation} from "@react-navigation/native";
 
 
 const Login = () => {
-
+    const navigation = useNavigation()
     const [email,setEmail] = useState("")
     const [pwd,setPwd] = useState("")
     const [emailerr, setEmailErr] = useState("")
@@ -77,7 +78,7 @@ const Login = () => {
                     label={"Forgot password"}
                     labelStyle={styles.ForgotText}
                     buttonContainerStyle={{backgroundColor:null}}
-                    onPress={() => alert("password 찾기")}
+                    onPress={() => navigation.push("Forgot")}
                 />
             </View>
             <TextBtn
@@ -96,13 +97,13 @@ const Login = () => {
                   Don't have an account? {""}
               </Text>
               <TextBtn
-              label={"Sign UP"}
-              buttonContainerStyle={{backgroundColor:null}}
-              labelStyle={{
-                  color: COLORS.primary,
-                  ...FONTS.body3
-              }}
-              onPress={() => alert("회원가입")}
+                  label={"Sign UP"}
+                  buttonContainerStyle={{backgroundColor:null}}
+                  labelStyle={{
+                      color: COLORS.primary,
+                      ...FONTS.body3
+                  }}
+                  onPress={() => navigation.push("Signup")}
 
               />
           </View>
