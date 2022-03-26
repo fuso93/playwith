@@ -6,6 +6,11 @@ import {View, Text} from 'react-native';
 
 const Forgot = () => {
     return (
+        <View>
+            <Text>
+
+            </Text>
+        </View>
 
     );
 };
