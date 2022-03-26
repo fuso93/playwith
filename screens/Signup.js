@@ -132,9 +132,12 @@ const Signup = () => {
                             color: COLORS.primary,
                             ...FONTS.h3
                         }}
+                        onPress={() => {
+                            navigation.goBack('Login')
+                        }}
                     />
                 </View>
-                
+
             </View>
         </AuthLayout>
 

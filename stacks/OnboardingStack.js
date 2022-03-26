@@ -9,14 +9,32 @@ const OnboardingStack = () => {
         <Stack.Navigator>
             <Stack.Screen
                 name="Onboard"
+                component={Onboarding}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen
+                name="Forgot"
+                component={Forgot}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen
+                name="Login"
                 component={Login}
                 options={{
                     headerShown: false
                 }}
             />
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Forgot" component={Forgot} />
-            <Stack.Screen name="Signup" component={Signup} />
+            <Stack.Screen
+                name="Signup"
+                component={Signup}
+                options={{
+                    headerShown: false
+                }}
+            />
         </Stack.Navigator>
 
     );
