@@ -5,7 +5,7 @@ import {AuthLayout, FormInput, TextBtn,TextIconButton} from "../component";
 import icons from "../constants/icons";
 import utils from "../utils/Utils";
 import {useNavigation} from "@react-navigation/native";
-
+import axios from "axios";
 
 const Login = () => {
     const navigation = useNavigation()
@@ -16,6 +16,23 @@ const Login = () => {
 
     const isEnableLogin = () => {
         return email != "" && pwd !="" && emailerr == ""
+    }
+
+    const LoginHandler = async () => {
+
+        const userInput = {
+            email,
+            password : pwd
+        }
+
+        console.log(userInput)
+
+        try{
+            const {data, status} =await axios.post("http://localhost:8000/api/users/login", userInput)
+            alert("login success")
+        }catch (err) {
+            alert(err.response.data.message)
+        }
     }
 
     return (
@@ -91,6 +108,7 @@ const Login = () => {
                     borderRadius:SIZES.radius,
                     backgroundColor: isEnableLogin() ? COLORS.primary : COLORS.lightGray2
                 }}
+                onPress={ () => LoginHandler()}
             />
           <View style={styles.signupContainer}>
               <Text style={{color:COLORS.darkGray, ...FONTS.body3 }}>

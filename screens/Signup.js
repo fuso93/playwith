@@ -5,7 +5,7 @@ import utils from "../utils/Utils";
 import {useNavigation} from "@react-navigation/native";
 import icons from "../constants/icons";
 import {AuthLayout, FormInput, TextBtn} from '../component';
-import backHandler from "react-native-web/dist/exports/BackHandler";
+import axios from "axios";
 
 const Signup = () => {
     const navigation = useNavigation()
@@ -21,6 +21,29 @@ const Signup = () => {
     const isEnableSignup = () => {
         return email !="" && name !="" && pwd !="" && emailErr == "" && pwdErr == ""
     }
+
+    const signUpHandler = async () => {
+
+        const userInput = {
+            name,
+            email,
+            password : pwd
+        }
+
+        try {
+            const {data, status} = await axios.post("http://localhost:8000/api/users", userInput)
+
+            if (status == 201) {
+                navigation.goBack('Login')
+            }
+
+        }catch (err) {
+            alert(err.response.data.message)
+        }
+
+    }
+
+
     return (
         <AuthLayout
             title={"Getting Started"}
@@ -107,7 +130,7 @@ const Signup = () => {
                         borderRadius: SIZES.radius,
                         backgroundColor: isEnableSignup() ? COLORS.primary : COLORS.lightGray1
                     }}
-                    //onPress={() => Alert("")}
+                    onPress={() => signUpHandler()}
                 />
 
                 <View
