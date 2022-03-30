@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet,Image ,TouchableOpacity} from 'react-native';
-import {SIZES, COLORS, FONTS} from "../constants/theme"
-import {AuthLayout, FormInput, TextBtn,TextIconButton} from "../component";
-import icons from "../constants/icons";
-import utils from "../utils/Utils";
+import {SIZES, COLORS, FONTS} from "../../constants/theme"
+import {AuthLayout, FormInput, TextBtn,TextIconButton} from "../../component";
+import icons from "../../constants/icons";
+import utils from "../../utils/Utils";
 import {useNavigation} from "@react-navigation/native";
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage";
 
 const Login = () => {
     const navigation = useNavigation()
@@ -17,6 +19,13 @@ const Login = () => {
     const isEnableLogin = () => {
         return email != "" && pwd !="" && emailerr == ""
     }
+    useEffect(() => {
+        // const token = AsyncStorage.getItem("token")
+        // if(token !== null) {
+        //     navigation.replace("Main")
+        // }
+
+    },[])
 
     const LoginHandler = async () => {
 
@@ -28,8 +37,13 @@ const Login = () => {
         console.log(userInput)
 
         try{
-            const {data, status} =await axios.post("http://localhost:8000/api/users/login", userInput)
-            alert("login success")
+            const {data, status} = await axios.post("http://localhost:8000/api/users/login", userInput)
+            console.log(data)
+            if(status === 200) {
+                await AsyncStorage.setItem("token", data.token)
+                navigation.replace("Main")
+            }
+
         }catch (err) {
             alert(err.response.data.message)
         }

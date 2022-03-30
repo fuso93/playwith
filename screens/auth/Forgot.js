@@ -3,9 +3,9 @@
 
 import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
-import {AuthLayout, FormInput, TextBtn} from "../component";
-import {COLORS, FONTS, SIZES} from "../constants/theme";
-import icons from "../constants/icons";
+import {AuthLayout, FormInput, TextBtn} from "../../component";
+import {COLORS, FONTS, SIZES} from "../../constants/theme";
+import icons from "../../constants/icons";
 import { useNavigation } from "@react-navigation/native";
 
 const Forgot = () => {

@@ -2,9 +2,9 @@ import React,{ useRef, useState } from 'react';
 import {View, Text, StyleSheet, Animated, Image, Button} from 'react-native';
 import {useNavigation} from "@react-navigation/native"; //다른 대로 이동
 import {StatusBar} from "expo-status-bar";
-import constants from "../constants/constants";
-import {TextBtn} from "../component";
-import { SIZES, FONTS, COLORS } from "../constants/theme";
+import constants from "../../constants/constants";
+import {TextBtn} from "../../component";
+import { SIZES, FONTS, COLORS } from "../../constants/theme";
 
 
 const Onboarding = () => {

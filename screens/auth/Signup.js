@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {COLORS, SIZES, FONTS} from "../constants/theme";
-import utils from "../utils/Utils";
+import {COLORS, SIZES, FONTS} from "../../constants/theme";
+import utils from "../../utils/Utils";
 import {useNavigation} from "@react-navigation/native";
-import icons from "../constants/icons";
-import {AuthLayout, FormInput, TextBtn} from '../component';
+import icons from "../../constants/icons";
+import {AuthLayout, FormInput, TextBtn} from '../../component';
 import axios from "axios";
 
 const Signup = () => {
