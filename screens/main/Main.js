@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, Button, Image} from "react-native";
+import {Text, View, Button, Image, ImageBackground, ImageBackgroundComponent} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import {useNavigation} from "@react-navigation/native";
+import {FONTS, SIZES, COLORS} from "../../constants/theme";
+
 
 const Main = () => {
 
@@ -50,24 +52,41 @@ const Main = () => {
     }
 
     return (
-        <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-            <Image
-                source={{ url : img}}
-                style={{
-                    width: 300,
-                    height: 300
-                }}
-            />
-            <Text>
-                {name}
-            </Text>
-            <Text>
-                {email}
-            </Text>
-            <Button
-                title="Log out"
-                onClick={() => logoutHandler()}
-            />
+        <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+            <View>
+                <View>
+                    <View style={{flex:1}}>
+                        <ImageBackground
+                            source={require('../../assets/images/back.png')}
+                            resizeMode={'cover'}
+                            style={{width:400, height:500}}
+
+                            // paddingBottom={10}
+                            // radius={15}
+                            // background={true}
+                        >
+                            <View style={{flex:1, alignItems:'center',justifyContent:'center'}}>
+                                <Image
+                                    width={64}
+                                    height={64}
+                                    marginBottom={10}
+                                    source={{uri: img}}
+                                />
+                                <Text style={{...FONTS.h1, color:COLORS.white}}>
+                                    {name}
+                                </Text>
+                                <Text style={{...FONTS.h3, color:COLORS.white}}>
+                                    {email}
+                                </Text>
+                            </View>
+                        </ImageBackground>
+                    </View>
+                </View>
+            </View>
+            {/*<Button*/}
+            {/*    title="Log out"*/}
+            {/*    onClick={() => logoutHandler()}*/}
+            {/*/>*/}
 
         </View>
     );

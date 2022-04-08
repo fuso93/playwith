@@ -9,7 +9,7 @@ const OnboardingStack = () => {
         <Stack.Navigator>
             <Stack.Screen
                 name="Onboard"
-                component={Onboarding}
+                component={Main}
                 options={{
                     headerShown: false
                 }}

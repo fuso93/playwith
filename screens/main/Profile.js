@@ -4,9 +4,19 @@ import {View,Text} from "react-native";
 const Profile = () => {
     return (
         <View>
-            <Text>
+            <View>
+                <View>
+                    <Image
+                        source={require('../../assets/images/back.png')}
+                        resizeMode={'cover'}
+                        paddingButton={10}
+                        padding={10}
+                        radius={15}
+                    >
 
-            </Text>
+                    </Image>
+                </View>
+            </View>
         </View>
     );
 };

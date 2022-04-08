@@ -5,7 +5,7 @@ import utils from "../../utils/Utils";
 import {useNavigation} from "@react-navigation/native";
 import icons from "../../constants/icons";
 import {AuthLayout, FormInput, TextBtn} from '../../component';
-import axios from "axios";
+ import axios from "axios";
 
 const Signup = () => {
     const navigation = useNavigation()
